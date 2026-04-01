@@ -1,0 +1,21 @@
+company_name,contact_name,title,email,phone,location,industry,revenue_range,employee_count,priority_level,last_contact_date,next_follow_up,notes,status
+TechSolutions Africa,John Mbatha,CEO,john@techsolutions.africa,+27 21 555 0101,Cape Town,Technology,$1M-$5M,25,High,2026-03-28,2026-04-05,Interested in fintech integration,Active
+GreenEnergy SA,Sarah Chen,Operations Director,sarah@greenenergy.sa,+27 11 555 0202,Johannesburg,Energy,$500K-$1M,15,Medium,2026-03-29,2026-04-07,Looking for sustainable finance options,Active
+AgriGrowth,Zanele Ndlovu,Founder,zanele@agrigrowth.co.za,+27 31 555 0303,Durban,Agriculture,$250K-$500K,8,High,2026-03-30,2026-04-04,Immediate need for crop financing,Hot Lead
+MediCare Logistics,David Okafor,CFO,david@medicarelogistics.ng,+234 1 555 0404,Lagos,Healthcare,$5M-$10M,45,Medium,2026-03-25,2026-04-10,Evaluating multiple fintech solutions,Warm
+EduTech Kenya,Amara Juma,Marketing Head,amara@edutech.ke,+254 20 555 0505,Nairobi,Education,$1M-$5M,30,High,2026-03-31,2026-04-06,Planning expansion needs funding,Active
+Construction Plus,Mohamed Hassan,Owner,mohamed@constructionplus.eg,+20 2 555 0606,Cairo,Construction,$500K-$1M,12,Medium,2026-03-27,2026-04-08,Project-based financing needs,Warm
+Retail Chain Ghana,Akua Mensah,Finance Manager,akua@retailchain.gh,+233 30 555 0707,Accra,Retail,$10M+,120,High,2026-03-26,2026-04-03,Multiple store financing requirements,Hot Lead
+Tourism Ventures,Raj Patel,Managing Director,raj@tourismventures.za,+27 21 555 0808,Cape Town,Tourism,$250K-$500K,10,Medium,2026-03-24,2026-04-09,Seasonal cash flow challenges,Active
+Manufacturing Corp,Chloe van der Merwe,COO,chloe@manufacturingcorp.co.za,+27 12 555 0909,Pretoria,Manufacturing,$5M-$10M,65,High,2026-03-23,2026-04-11,Supply chain financing interest,Warm
+Fintech Startup,Samuel Adebayo,CTO,samuel@fintechstartup.ng,+234 1 555 1010,Lagos,Financial Services,$1M-$5M,22,High,2026-03-22,2026-04-12,Potential partnership opportunity,Hot Lead
+Food Distribution,Isabella Rossi,Operations Manager,isabella@fooddistro.za,+27 21 555 1111,Cape Town,Food & Beverage,$500K-$1M,18,Medium,2026-03-21,2026-04-13,Expanding to new regions,Active
+Renewable Energy,Tariq Al-Mansoori,Project Director,tariq@renewableenergy.ae,+971 4 555 1212,Dubai,Energy,$10M+,85,High,2026-03-20,2026-04-14,Large project financing needs,Warm
+Logistics Network,James Kariuki,CEO,james@logisticsnetwork.ke,+254 20 555 1313,Nairobi,Logistics,$5M-$10M,55,Medium,2026-03-19,2026-04-15,Fleet financing requirements,Active
+Real Estate Dev,Sophie Laurent,Development Manager,sophie@realestatedev.za,+27 11 555 1414,Johannesburg,Real Estate,$10M+,95,High,2026-03-18,2026-04-16,Multiple property projects,Warm
+Healthcare Clinic,Dr. Fatima Zahra,Medical Director,fatima@healthcareclinic.ma,+212 5 555 1515,Casablanca,Healthcare,$1M-$5M,40,Medium,2026-03-17,2026-04-17,Equipment financing needs,Active
+Education Group,Professor Kwame Asante,Chairman,kwame@educationgroup.gh,+233 30 555 1616,Accra,Education,$5M-$10M,75,High,2026-03-16,2026-04-18,Digital transformation project,Hot Lead
+Agriculture Co-op,María González,Export Manager,maria@agricoop.co,+34 91 555 1717,Madrid,Agriculture,$10M+,110,Medium,2026-03-15,2026-04-19,Export financing requirements,Warm
+Technology Hub,Alex Johnson,Innovation Lead,alex@technologyhub.za,+27 21 555 1818,Cape Town,Technology,$1M-$5M,28,High,2026-03-14,2026-04-20,Startup funding programs,Active
+Manufacturing Plant,Kenji Tanaka,Production Head,kenji@manufacturingplant.jp,+81 3 555 1919,Tokyo,Manufacturing,$10M+,150,Medium,2026-03-13,2026-04-21,Automation financing interest,Warm
+Retail Franchise,Linda van Niekerk,Franchise Director,linda@retailfranchise.za,+27 31 555 2020,Durban,Retail,$5M-$10M,60,High,2026-03-12,2026-04-22,Expansion to 10 new locations,Hot Lead
