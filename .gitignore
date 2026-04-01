@@ -1,0 +1,28 @@
+# Ignore sensitive data
+*.env
+*.key
+*.pem
+*.secret
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore large files
+*.zip
+*.tar
+*.gz
+
+# Keep workspace structure
+!team-outputs/
+!performance-dashboard/
+!processes/
+!tools/
+!skills/
+!environment/
+!accountability/
