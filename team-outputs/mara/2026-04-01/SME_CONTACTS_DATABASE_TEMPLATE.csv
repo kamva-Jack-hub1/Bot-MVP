@@ -1,5 +1,21 @@
-company_name,contact_name,title,email,phone,location,industry,revenue_range,employee_count,priority_level,last_contact_date,next_follow_up,notes,status
-TechSolutions Africa,John Mbatha,CEO,john@techsolutions.africa,+27 21 555 0101,Cape Town,Technology,$1M-$5M,25,High,2026-03-28,2026-04-05,Interested in fintech integration,Active
+# ⚠️ **FILE REPLACED - SEE SOUTH AFRICA ONLY VERSION**
+# Sponsor directive received: "Mara's research should be confined to South Africa"
+# This file has been replaced with: SME_CONTACTS_DATABASE_TEMPLATE_SOUTH_AFRICA_ONLY.csv
+# Date: April 2, 2026, 09:23 SAST
+# Reason: Geographic scope correction - South Africa focus only
+
+# New file includes:
+# - Only South African companies
+# - ZAR revenue ranges
+# - South African provinces
+# - BEE levels
+# - South African registration numbers
+
+# Access the corrected file:
+# SME_CONTACTS_DATABASE_TEMPLATE_SOUTH_AFRICA_ONLY.csv
+
+# Research scope guidance:
+# MARA_RESEARCH_SCOPE_GUIDANCE.md
 GreenEnergy SA,Sarah Chen,Operations Director,sarah@greenenergy.sa,+27 11 555 0202,Johannesburg,Energy,$500K-$1M,15,Medium,2026-03-29,2026-04-07,Looking for sustainable finance options,Active
 AgriGrowth,Zanele Ndlovu,Founder,zanele@agrigrowth.co.za,+27 31 555 0303,Durban,Agriculture,$250K-$500K,8,High,2026-03-30,2026-04-04,Immediate need for crop financing,Hot Lead
 MediCare Logistics,David Okafor,CFO,david@medicarelogistics.ng,+234 1 555 0404,Lagos,Healthcare,$5M-$10M,45,Medium,2026-03-25,2026-04-10,Evaluating multiple fintech solutions,Warm
