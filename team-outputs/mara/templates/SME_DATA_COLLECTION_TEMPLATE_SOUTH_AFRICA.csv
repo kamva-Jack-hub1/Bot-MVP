@@ -1,0 +1,70 @@
+company_name,contact_name,title,email,phone,location,province,industry,revenue_range_zar,employee_count,priority_level,last_contact_date,next_follow_up,notes,status,bee_level,registration_number
+# REQUIRED FIELDS (must be completed):
+# company_name: Full legal name of company
+# contact_name: Primary contact person
+# title: Contact's position/title
+# email: Must be .za or .co.za domain (e.g., name@company.co.za)
+# phone: Must be +27 format (e.g., +27 21 555 0101)
+# location: South African city (e.g., Cape Town)
+# province: One of 9 SA provinces (Gauteng, Western Cape, KwaZulu-Natal, Eastern Cape, Limpopo, Mpumalanga, North West, Free State, Northern Cape)
+# industry: Primary industry (e.g., Technology, Agriculture, Manufacturing)
+# revenue_range_zar: ZAR range (e.g., R5M-R25M, R25M-R50M, R50M+)
+# employee_count: Number of employees
+# priority_level: High, Medium, Low
+# last_contact_date: YYYY-MM-DD format
+# next_follow_up: YYYY-MM-DD format
+# notes: South Africa-specific context
+# status: Active, Warm, Hot Lead, Inactive
+# bee_level: Level 1-8 or N/A
+# registration_number: SA company registration (e.g., 2021/123456/07)
+
+# EXAMPLE ENTRIES (copy and modify):
+Example Tech SA,John Doe,CEO,john@exampletech.co.za,+27 11 555 1234,Johannesburg,Gauteng,Technology,R10M-R25M,45,High,2026-04-02,2026-04-09,Interested in fintech solutions for SME market,Active,Level 3,2020/987654/07
+Example Agri SA,Jane Smith,Founder,jane@exampleagri.co.za,+27 21 555 5678,Cape Town,Western Cape,Agriculture,R5M-R10M,28,Medium,2026-04-01,2026-04-08,Looking for crop financing for expansion,Hot Lead,Level 1,2021/456789/07
+Example Manu SA,Robert Brown,Operations Director,robert@examplemanu.co.za,+27 31 555 9012,Durban,KwaZulu-Natal,Manufacturing,R25M-R50M,62,High,2026-03-30,2026-04-06,Supply chain financing needs for automotive parts,Warm,Level 4,2019/654321/07
+
+# DATA QUALITY RULES:
+# 1. GEOGRAPHIC: South Africa only - no exceptions
+# 2. CURRENCY: ZAR only - no USD or other currencies
+# 3. PHONE: +27 format only - no other country codes
+# 4. EMAIL: .za or .co.za domains preferred
+# 5. DATES: YYYY-MM-DD format only
+# 6. PROVINCES: Use official province names only
+# 7. BEE: Level 1-8 or N/A only
+# 8. REGISTRATION: Valid SA company registration format
+
+# VALIDATION CHECKLIST (before submission):
+# [ ] All companies in South Africa
+# [ ] All phone numbers +27 format
+# [ ] All emails .za/.co.za domains
+# [ ] All currency in ZAR
+# [ ] All provinces valid SA provinces
+# [ ] All dates YYYY-MM-DD format
+# [ ] All BEE levels valid (1-8 or N/A)
+# [ ] All registration numbers valid SA format
+
+# COMMON ERRORS TO AVOID:
+# ❌ Non-SA locations (Lagos, Nairobi, Cairo, etc.)
+# ❌ Non-SA phone codes (+234, +254, +20, etc.)
+# ❌ Non-SA email domains (.ng, .ke, .eg, .gh, etc.)
+# ❌ USD currency ($ instead of R)
+# ❌ Invalid province names
+# ❌ Invalid date formats
+# ❌ Missing required fields
+# ❌ Duplicate entries
+
+# QUALITY ASSURANCE:
+# This template will be checked by:
+# 1. Automated scripts (verify_sa_focus.sh)
+# 2. Chief of Staff review
+# 3. Sponsor validation
+
+# SUBMISSION PROCESS:
+# 1. Complete template with South Africa data only
+# 2. Run verification script: ./scripts/verify_sa_focus.sh
+# 3. Fix any issues identified
+# 4. Submit to Chief of Staff for review
+# 5. Chief of Staff verifies and commits to GitHub
+# 6. Sponsor validates on GitHub
+
+# REMEMBER: South Africa focus only. Quality over quantity.
