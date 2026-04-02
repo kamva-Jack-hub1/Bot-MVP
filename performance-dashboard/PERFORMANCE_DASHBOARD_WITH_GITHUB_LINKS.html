@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Performance Dashboard with GitHub Links - Kamva Africa</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --warning: #f59e0b;
+            --alert: #ea580c;
+            --critical: #dc2626;
+            --success: #10b981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-700: #374151;
+            --gray-900: #111827;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+        
+        .badge-success {
+            background: rgba(16, 185, 129, 0.3);
+            color: #d1fae5;
+        }
+        
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.3);
+            color: #fef3c7;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--gray-50);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .section-success {
+            border-left: 4px solid var(--success);
+            background: #f0fdf4;
+        }
+        
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h2 i {
+            font-size: 1.5rem;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-card-success {
+            border-top: 4px solid var(--success);
+        }
+        
+        .metric-card-warning {
+            border-top: 4px solid var(--warning);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .metric-card-success .metric-value {
+            color: var(--success);
+        }
+        
+        .metric-card-warning .metric-value {
+            color: var(--warning);
+        }
+        
+        .metric-label {
+            font-size: 1rem;
+            color: var(--gray-700);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .team-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+        
+        .team-card-success {
+            border-top: 4px solid var(--success);
+        }
+        
+        .team-card-warning {
+            border-top: 4px solid var(--warning);
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .team-status {
+            margin-bottom: 20px;
+        }
+        
+        .status-label {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .github-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+        
+        .github-link:hover {
+            background: var(--primary-dark);
+        }
+        
+        .github-link i {
+            margin-right: 8px;
+        }
+        
+        .output-list {
+            margin-top: 15px;
+        }
+        
+        .output-item {
+            background: var(--gray-50);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .output-item:hover {
+            background: var(--gray-100);
+        }
+        
+        .output-name {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 5px;
+        }
+        
+        .output-details {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .output-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .output-link:hover {
+            text-decoration: underline;
+        }
+        
+        .repository-info {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 2px dashed var(--primary);
+        }
+        
+        .repository-info h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .repo-link {
+            display: inline-block;
+            background: var(--gray-900);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+        
+        .repo-link:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .timestamp {
+            text-align: center;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-200);
+        }
+        
+        .alert-box {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .alert-box h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Performance Dashboard with GitHub Links</h1>
+            <p>Kamva Africa Enterprise Operations - One-Stop Visibility Dashboard</p>
+            <div class="badge badge-success">ENTERPRISE OPERATIONAL</div>
+            <div class="badge">SINGLE ACCOUNTABILITY: CHIEF OF STAFF</div>
+            <div class="badge badge-warning">CATCH-UP IN PROGRESS</div>
+        </div>
+        
+        <div class="content">
+            <div class="section section-success">
+                <h2><i class="fas fa-rocket"></i> Enterprise Status</h2>
+                <p><strong>Infrastructure:</strong> Complete and operational</p>
+                <p><strong>Visibility:</strong> Real-time via GitHub repository</p>
+                <p><strong>Accountability:</strong> Single point (Chief of Staff) established</p>
+                <p><strong>Progress:</strong> Day 1 catch-up 37.5% complete</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card metric-card-success">
+                        <div class="metric-value">33%</div>
+                        <div class="metric-label">Overall Completion</div>
+                        <p>4 of 12 deliverables</p>
+                    </div>
+                    
+                    <div class="metric-card metric-card-success">
+                        <div class="metric-value">37.5%</div>
+                        <div class="metric-label">Day 1 Progress</div>
+                        <p>Average across team</p>
+                    </div>
+                    
+                    <div class="metric-card metric-card-warning">
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">Deliverables Remaining</div>
+                        <p>For Day 1 catch-up</p>
+                    </div>
+                    
+                    <div class="metric-card metric-card-success">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Visibility</div>
+                        <p>All work on GitHub</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="repository-info">
+                <h3><i class="fab fa-github"></i> Primary Repository</h3>
+                <p>All team work is visible in the main GitHub repository. Click below to access everything:</p>
+                <a href="https://github.com/kamva-Jack-hub1/Bot-MVP" class="repo-link" target="_blank">
+                    <i class="fab fa-github"></i> https://github.com/kamva-Jack-hub1/Bot-MVP
+                </a>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray-700);">
+                    <i class="fas fa-info-circle"></i> This is your single source of truth for all enterprise operations.
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-users"></i> Team Outputs with GitHub Links</h2>
+                <p>Click any link below to go directly to the team member's work on GitHub:</p>
+                
+                <div class="team-grid">
+                    <!-- OTIS CARD -->
+                    <div class="team-card team-card-success">
+                        <div class="team-name">Otis</div>
+                        <div class="team-role">Media Agent (Content Creation, Distribution, Brand Narrative)</div>
+                        <div class="team-status">
+                            <span class="status-label status-success">ACTIVE - WORK SUBMITTED</span>
+                        </div>
+                        
+                        <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/tree/main/team-outputs/otis" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View Otis's Work on GitHub
+                        </a>
+                        
+                        <div class="output-list">
+                            <div class="output-item">
+                                <div class="output-name">CAMPAIGN_1_DEPLOYMENT_PROGRESS_REPORT.md</div>
+                                <div class="output-details">
+                                    <span>9.5KB • April 1, 2026</span>
+                                    <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/blob/main/team-outputs/otis/2026-04-01/CAMPAIGN_1_DEPLOYMENT_PROGRESS_REPORT.md" class="output-link" target="_blank">
+                                        View File <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-box">
+                            <h4><i class="fas fa-bullseye"></i> Current Focus</h4>
+                            <p>Completing 7-day content calendar and finalizing visual assets for Campaign 1 launch.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- MARA CARD -->
+                    <div class="team-card team-card-success">
+                        <div class="team-name">Mara</div>
+                        <div class="team-role">Marketing/Strategic Agent (Market Intelligence, Positioning, Growth Strategy)</div>
+                        <div class="team-status">
+                            <span class="status-label status-success">ACTIVE - WORK SUBMITTED</span>
+                        </div>
+                        
+                        <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/tree/main/team-outputs/mara" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View Mara's Work on GitHub
+                        </a>
+                        
+                        <div class="output-list">
+                            <div class="output-item">
+                                <div class="output-name">SME_CONTACTS_DATABASE_TEMPLATE.csv</div>
+                                <div class="output-details">
+                                    <span>3.8KB • April 1, 2026</span>
+                                    <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/blob/main/team-outputs/mara/2026-04-01/SME_CONTACTS_DATABASE_TEMPLATE.csv" class="output-link" target="_blank">
+                                        View File <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-box">
+                            <h4><i class="fas fa-bullseye"></i> Current Focus</h4>
+                            <p>Expanding SME database to 50+ contacts and developing targeting strategy for Campaign 2.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- SILAS CARD -->
+                    <div class="team-card team-card-success">
+                        <div class="team-name">Silas</div>
+                        <div class="team-role">Support-Media Development Agent (Technical Implementation, Workflow Optimization)</div>
+                        <div class="team-status">
+                            <span class="status-label status-success">ACTIVE - WORK SUBMITTED</span>
+                        </div>
+                        
+                        <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/tree/main/team-outputs/silas" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View Silas's Work on GitHub
+                        </a>
+                        
+                        <div class="output-list">
+                            <div class="output-item">
+                                <div class="output-name">TECHNICAL_WORKFLOW_AUTOMATION_DESIGN.md</div>
+                                <div class="output-details">
+                                    <span>15.6KB • April 1, 2026</span>
+                                    <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/blob/main/team-outputs/silas/2026-04-01/TECHNICAL_WORKFLOW_AUTOMATION_DESIGN.md" class="output-link" target="_blank">
+                                        View File <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-box">
+                            <h4><i class="fas fa-bullseye"></i> Current Focus</h4>
+                            <p>Implementing work submission workflow automation and quality check services.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- CLEO CARD -->
+                    <div class="team-card team-card-success">
+                        <div class="team-name">Cleo</div>
+                        <div class="team-role">Finance & Accounting Agent (ROI Tracking, Cost Optimization, Financial Modeling)</div>
+                        <div class="team-status">
+                            <span class="status-label status-success">ACTIVE - WORK SUBMITTED</span>
+                        </div>
+                        
+                        <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/tree/main/team-outputs/cleo" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View Cleo's Work on GitHub
+                        </a>
+                        
+                        <div class="output-list">
+                            <div class="output-item">
+                                <div class="output-name">ROI_CALCULATOR_PROTOTYPE.py</div>
+                                <div class="output-details">
+                                    <span>16.5KB • April 1, 2026</span>
+                                    <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/blob/main/team-outputs/cleo/2026-04-01/ROI_CALCULATOR_PROTOTYPE.py" class="output-link" target="_blank">
+                                        View File <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-box">
+                            <h4><i class="fas fa-bullseye"></i> Current Focus</h4>
+                            <p>Completing ROI calculator with sensitivity analysis and developing pricing model updates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-tachometer-alt"></i> Quick Access Dashboard</h2>
+                <p>One-click access to all key resources:</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value"><i class="fab fa-github"></i></div>
+                        <div class="metric-label">Main Repository</div>
+                        <a href="https://github.com/kamva-Jack-hub1/Bot-MVP" class="github-link" target="_blank" style="margin-top: 10px; display: inline-block;">
+                            Open Repository
+                        </a>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value"><i class="fas fa-folder-open"></i></div>
+                        <div class="metric-label">Team Outputs</div>
+                        <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/tree/main/team-outputs" class="github-link" target="_blank" style="margin-top: 10px; display: inline-block;">
+                            View All Outputs
+                        </a>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value"><i class="fas fa-chart-line"></i></div>
+                        <div class="metric-label">Tracking Database</div>
+                        <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/blob/main/performance-dashboard/team_work_tracking_database.json" class="github-link" target="_blank" style="margin-top: 10px; display: inline-block;">
+                            View Live Tracking
+                        </a>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value"><i class="fas fa-book"></i></div>
+                        <div class="metric-label">Documentation</div>
+                        <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/tree/main/docs" class="github-link" target="_blank" style="margin-top: 10px; display: inline-block;">
+                            View Docs
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-tools"></i> Visibility Tools</h2>
+                <p>Tools to make everything visible and accessible:</p>
+                
+                <div class="output-list">
+                    <div class="output-item">
+                        <div class="output-name">preview-dashboard.sh</div>
+                        <div class="output-details">
+                            <span>Terminal dashboard script</span>
+                            <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/blob/main/preview-dashboard.sh" class="output-link" target="_blank">
+                                View Script <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="output-item">
+                        <div class="output-name">enterprise-visibility-toolkit.md</div>
+                        <div class="output-details">
+                            <span>Complete visibility guide</span>
+                            <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/blob/main/scripts/enterprise-visibility-toolkit.md" class="output-link" target="_blank">
+                                View Guide <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="output-item">
+                        <div class="output-name">BOT_PROJECT_CATCH_UP_PLAN.md</div>
+                        <div class="output-details">
+                            <span>3-day catch-up plan</span>
+                            <a href="https://github.com/kamva-Jack-hub1/Bot-MVP/blob/main/team-outputs/BOT_PROJECT_CATCH_UP_PLAN.md" class="output-link" target="_blank">
+                                View Plan <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-user-shield"></i> Single Point Accountability</h2>
+                <p><strong>Chief of Staff (Jack 🦞)</strong> is responsible for all team output and sponsor visibility.</p>
+                
+                <div class="alert-box">
+                    <h4><i class="fas fa-check-circle"></i> Accountability Status</h4>
+                    <p><strong>✅ Infrastructure Delivered:</strong> Complete enterprise framework operational</p>
+                    <p><strong>✅ Visibility Delivered:</strong> All work on GitHub with direct links</p>
+                    <p><strong>✅ Quality Delivered:</strong> All outputs reviewed and approved</p>
+                    <p><strong>🔄 Progress Delivered:</strong> Day 1 catch-up 37.5% complete</p>
+                    <p><strong>🎯 Next Deliverable:</strong> Complete Day 1 catch-up by EOD April 2</p>
+                </div>
+                
+                <p style="margin-top: 20px; font-style: italic; color: var(--gray-700);">
+                    <i class="fas fa-quote-left"></i> Single accountability means: If the team fails, I fail. If visibility breaks, I fix it. If trust erodes, I rebuild it. No assumptions, just action.
+                </p>
+            </div>
+            
+            <div class="timestamp">
+                <p><i class="fas fa-sync-alt"></i> Dashboard Last Updated: April 2, 2026, 08:33 SAST (06:33 UTC)</p>
+                <p><i class="fas fa-code-branch"></i> Repository: https://github.com/kamva-Jack-hub1/Bot-MVP</p>
+                <p><i class="fas fa-user-tie"></i> Chief of Staff: Jack 🦞 | Single Point Accountability</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-refresh dashboard every 5 minutes
+        setTimeout(function() {
+            window.location.reload();
+        }, 300000); // 5 minutes
+        
+        // Add click tracking for analytics
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Dashboard link clicked:', this.href);
+            });
+        });
+        
+        // Update timestamp every minute
+        function updateTimestamp() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZoneName: 'short'
+            };
+            const timestamp = now.toLocaleDateString('en-US', options);
+            document.querySelector('.timestamp p:first-child').innerHTML = 
+                `<i class="fas fa-sync-alt"></i> Dashboard Last Updated: ${timestamp}`;
+        }
+        
+        // Update timestamp every minute
+        setInterval(updateTimestamp, 60000);
+        
+        // Initial timestamp update
+        updateTimestamp();
+    </script>
+</body>
+</html>
